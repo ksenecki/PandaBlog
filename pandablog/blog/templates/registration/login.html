@@ -1,0 +1,46 @@
+{% extends "base.html" %} 
+
+
+{% block content %}
+<style>
+.button {
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.fieldWrapper {
+	padding-top: 5px;
+}
+
+</style>
+
+<div class='container'>
+{% if user.is_authenticated %}
+  <h1> Cześć {{ user.username }}! </h1>
+  <p> ༼ つ ◕_◕ ༽つ </p>
+{% else %}
+	<form method="post">
+		{% csrf_token %}
+	    {{ form.non_field_errors }}
+	    <div class="fieldWrapper">
+	        {{ form.username.errors }}
+	        <label for="{{ form.username.id_for_label }}">Username:</label>
+	    </div>
+	    <div>
+	        {{ form.username }}
+	    </div>
+	    <div class="fieldWrapper">
+	        {{ form.password.errors }}
+	        <label for="{{ form.password.id_for_label }}">Password:</label>
+	    </div>
+	    <div>
+	        {{ form.password }}
+	    </div>
+	    <div class='button'>
+	    	<button type="submit" class="btn btn-primary">Login</button>
+		</div>
+	</form>
+{% endif %}
+</div>
+
+{% endblock %}

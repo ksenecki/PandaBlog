@@ -53,13 +53,20 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">About</a>
+                            <a class="nav-link text-black font-weight-bold" href="#">O mnie</a>
                         </li>
                         <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Contact</a>
+                            <a class="nav-link text-black font-weight-bold" href="#">Kontakt</a>
                         </li>
                         <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Login</a>
+                            <a class="nav-link text-black font-weight-bold" href="/register/login/">Zaloguj</a>
+                        </li>
+                        <li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item text-black">
+                            <a class="nav-link text-black font-weight-bold" href="/create/">Nowy Post</a>
+                        </li>
+                        {% endif %}
                         </li>
                     </ul>
                 </div>
