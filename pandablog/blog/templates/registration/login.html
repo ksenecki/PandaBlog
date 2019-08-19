@@ -18,6 +18,7 @@
 {% if user.is_authenticated %}
   <h1> Cześć {{ user.username }}! </h1>
   <p> ༼ つ ◕_◕ ༽つ </p>
+  <p><a href="{% url 'logout' %}">logout</a></p>
 {% else %}
 	<form method="post">
 		{% csrf_token %}
@@ -38,6 +39,9 @@
 	    </div>
 	    <div class='button'>
 	    	<button type="submit" class="btn btn-primary">Login</button>
+		</div>
+		<div class='button'>
+		<a href="/accounts/signup/" class="btn btn-danger">Zarejestruj</a>
 		</div>
 	</form>
 {% endif %}
