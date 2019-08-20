@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 <style>
 label {
@@ -12,6 +13,8 @@ label {
 }
 
 </style>
+
+
 <div class='container'>
 {% if user.is_authenticated %}
   <h1> Cześć {{ user.username }}! </h1>
@@ -38,9 +41,10 @@ label {
 	  		</div>
 	  	</tr>
 	  	<tr>
-	  		<div class="fieldWrapper">
+	  		<div class="fieldWrapper" id="summernote">
 	  			<td><label for="{{ form.content.id_for_label }}">Treść:</label></td>
-	  			<td>{{ form.content }}</td>
+	  			<td>{{ form.content }}
+	  			</td>
 	  		</div>
 		</tr>
 		<tr>
@@ -63,3 +67,4 @@ label {
 {% endif %}
 </div>
 {% endblock %}
+

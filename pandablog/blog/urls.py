@@ -1,10 +1,14 @@
 from .views import (
 				PostList,
-				 PostDetail,
-				  create_post_view
+				PostDetail,
+				create_post_view
 				) #CreatePost
 
 from django.urls import path, include
+
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 
 urlpatterns = [
@@ -13,4 +17,10 @@ urlpatterns = [
 	path('create/', create_post_view, name='create_post'),
     path('<slug:slug>/', PostDetail.as_view(), name='post_detail'),
     path('register/', include('django.contrib.auth.urls')),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
+    path('summernote/', include('django_summernote.urls')),
 ]
+
+
+if settings.DEBUG:
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

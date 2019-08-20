@@ -2,6 +2,7 @@ from django import forms
 
 from .models import Post
 
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 class PostModelForm(forms.ModelForm):
 	class Meta:
@@ -12,4 +13,7 @@ class PostModelForm(forms.ModelForm):
 			'author',
 			'content',
 			'status',
-		]
+			]
+		widgets = {
+			'content': SummernoteWidget(),
+		}

@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,7 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*'] # Ustawienia hostów
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4' #Dodane cripsy
+#CRISPY_TEMPLATE_PACK = 'bootstrap4' #Dodane cripsy
+
+SUMMERNOTE_THEME = 'bs4'
 
 # Application definition
 
@@ -40,7 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # My Apps:
     'blog.apps.BlogConfig',
-    'crispy_forms', #Na razie nie potrzebne
+    #'crispy_forms', #Na razie nie potrzebne
+    #'djrichtextfield', # Django Rich Text Field
+    #'froala_editor', # Froala Rich Text Editor WYSIWYG
+    'django_summernote', # Django Summernote
     'accounts.apps.AccountsConfig',
 ]
 
@@ -133,3 +140,19 @@ LOGOUT_REDIRECT_URL = 'home'
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+# DJRICHTEXTFIELD_CONFIG = {
+#     'js': ['//tinymce.cachefly.net/4.1/tinymce.min.js'],
+#     'init_template': 'djrichtextfield/init/tinymce.js',
+#     'settings': {
+#         'menubar': False,
+#         'plugins': 'link image',
+#         'toolbar': 'bold italic | link image | removeformat',
+#         'width': 700
+#     }
+# }
+
