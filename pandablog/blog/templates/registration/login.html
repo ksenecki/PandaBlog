@@ -3,14 +3,12 @@
 
 {% block content %}
 <style>
-.button {
-	padding-bottom: 5px;
-	padding-top: 5px;
+.container {
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 
-.fieldWrapper {
-	padding-top: 5px;
-}
+
 
 </style>
 
@@ -18,31 +16,35 @@
 {% if user.is_authenticated %}
   <h1> Cześć {{ user.username }}! </h1>
   <p> ༼ つ ◕_◕ ༽つ </p>
-  <p><a href="{% url 'logout' %}">logout</a></p>
+  <a href="{% url 'logout' %}" class="btn btn-danger">Log out</a>
+
 {% else %}
 	<form method="post">
 		{% csrf_token %}
 	    {{ form.non_field_errors }}
+	    <table class="fields">
 	    <div class="fieldWrapper">
-	        {{ form.username.errors }}
-	        <label for="{{ form.username.id_for_label }}">Username:</label>
-	    </div>
-	    <div>
-	        {{ form.username }}
+	    	<tr>
+	    		<td>{{ form.username.errors }}<label for="{{ form.username.id_for_label }}">Username:</label></td>
+	        	<td>{{ form.username }}</td>
+	        </tr>
 	    </div>
 	    <div class="fieldWrapper">
-	        {{ form.password.errors }}
-	        <label for="{{ form.password.id_for_label }}">Password:</label>
-	    </div>
-	    <div>
-	        {{ form.password }}
+	    	<tr>
+	    		<td>{{ form.password.errors }}<label for="{{ form.password.id_for_label }}">Password:</label></td>
+	    		<td>{{ form.password }}</td>
+	    	</tr>
 	    </div>
 	    <div class='button'>
-	    	<button type="submit" class="btn btn-primary">Login</button>
+	    	<tr>
+	    		<td></td>
+	    		<td>
+	    			<button type="submit" class="btn btn-primary">Login</button>
+	    			<a href="/accounts/signup/" class="btn btn-danger">Zarejestruj</a>
+	    		</td>
+			</tr>
 		</div>
-		<div class='button'>
-		<a href="/accounts/signup/" class="btn btn-danger">Zarejestruj</a>
-		</div>
+	</table>
 	</form>
 {% endif %}
 </div>

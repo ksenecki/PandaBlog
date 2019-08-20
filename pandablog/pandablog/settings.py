@@ -25,9 +25,9 @@ SECRET_KEY = 'f49@l)9sec4o8dmh0%lh%0#7oxp+i&(d&ualg!s^f*whew5e=v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*'] # Ustawienia hostów
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4' #Dodane cripsy
 
 # Application definition
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # My Apps:
     'blog.apps.BlogConfig',
-    'crispy_forms',
+    'crispy_forms', #Na razie nie potrzebne
     'accounts.apps.AccountsConfig',
 ]
 
@@ -124,9 +124,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Logowanie się
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'home'
 
+# Do resetowania hasła
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")

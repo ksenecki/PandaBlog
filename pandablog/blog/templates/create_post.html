@@ -1,13 +1,65 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+label {
+	padding-right: 5px;
+}
+.button {
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+}
 
+</style>
+<div class='container'>
 {% if user.is_authenticated %}
   <h1> Cześć {{ user.username }}! </h1>
   <p> Zrób se posta</p>
+  <form action='.' method='POST'>
+  	{% csrf_token %}
+  	<table>
+  		<tr>
+	  		<div class="fieldWrapper">
+	  			<td><label for="{{ form.title.id_for_label }}">Tytuł:</label></td>
+	  			<td>{{ form.title }}</td>
+	  		</div>
+	  	</tr>
+	  	<tr>
+	  		<div class="fieldWrapper">
+	  			<td><label for="{{ form.slug.id_for_label }}">Id:</label></td>
+	  			<td>{{ form.slug }}</td>
+	  		</div>
+	  	</tr>
+	  	<tr>
+	  		<div class="fieldWrapper">
+	  			<td><label for="{{ form.author.id_for_label }}">Autor:</label></td>
+	  			<td>{{ form.author }}</td>
+	  		</div>
+	  	</tr>
+	  	<tr>
+	  		<div class="fieldWrapper">
+	  			<td><label for="{{ form.content.id_for_label }}">Treść:</label></td>
+	  			<td>{{ form.content }}</td>
+	  		</div>
+		</tr>
+		<tr>
+			<div class="fieldWrapper">
+				<td><label for="{{ form.status.id_for_label }}">Status:</label></td>
+				<td>{{ form.status }}</td>
+			</div>
+		</tr>
+		<tr>
+			<div class='button' class="btn btn-primary">
+				<td></td>
+				<td><button type="submit" class="btn btn-primary">Zapisz</button></td>
+			</div>
+		</tr>
+	</table>
+  </form>
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+  <a href="{% url 'login' %}" class="btn btn-primary">Zaloguj</a>
 {% endif %}
-
+</div>
 {% endblock %}
