@@ -15,9 +15,9 @@ def emailView(request):
             try:
                 send_mail(subject, message, from_email, ['admin@example.com'])
             except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+                return HttpResponse('Zły nagłówek')
             return redirect('success')
     return render(request, "email.html", {'form': form})
 
 def successView(request):
-    return HttpResponse('Sukces! Dzięki za wiadomość.')
+    return HttpResponse('Dzięki za wiadomość!')
