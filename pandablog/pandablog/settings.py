@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # My Apps:
     'blog.apps.BlogConfig',
+    'sendmail.apps.SendmailConfig',
     #'crispy_forms', #Na razie nie potrzebne
     #'djrichtextfield', # Django Rich Text Field
     #'froala_editor', # Froala Rich Text Editor WYSIWYG
@@ -137,7 +138,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 # Do resetowania hasła
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 

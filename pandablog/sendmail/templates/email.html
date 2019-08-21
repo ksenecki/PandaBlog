@@ -1,0 +1,46 @@
+{% extends "base.html" %} 
+
+
+{% block content %}
+<style>
+.container {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+</style>
+
+<div class='container'>
+<h1>Formularz kontaktowy</h1>
+<form method="post">
+    {% csrf_token %}
+		<table>
+  		<tr>
+	  		<div class="fieldWrapper">
+	  			<td><label for="{{ form.from_email.id_for_label }}">Twój e-mail:</label></td>
+	  			<td>{{ form.from_email }}</td>
+	  		</div>
+	  	</tr>
+	  	<tr>
+	  		<div class="fieldWrapper">
+	  			<td><label for="{{ form.subject.id_for_label }}">Tytuł:</label></td>
+	  			<td>{{ form.subject }}</td>
+	  		</div>
+	  	</tr>
+	  	<tr>
+	  		<div class="fieldWrapper">
+	  			<td><label for="{{ form.message.id_for_label }}">Wiadomość:</label></td>
+	  			<td>{{ form.message }}</td>
+	  		</div>
+	  	</tr>
+	  	<tr>
+			<div>
+				<td></td>
+				<td><button type="submit" class="btn btn-primary">Wyślij</button></td>
+			</div>
+		</tr>
+	  </table>
+</form>
+
+</div>
+
+{% endblock %}

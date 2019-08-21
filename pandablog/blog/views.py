@@ -7,6 +7,14 @@ from .models import Post
 from django.views.generic.base import TemplateView
 
 
+
+def about_view(request):
+    context = {
+    }
+
+    return render(request, "about.html", context)
+
+
 # def post_list_view(request, *args, **kwargs):
 # 	queryset = Post.objects.filter(status=1).order_by('-created_on')
 # 	context = {
@@ -14,6 +22,7 @@ from django.views.generic.base import TemplateView
 # 	}
 # 	template_name = 'index.html'
 # 	return render(request, template_name, context)
+
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -23,6 +32,7 @@ class PostList(generic.ListView):
 #     queryset = Post.objects.filter(status=1).order_by('-created_on')
 #     form_class = PostModelForm
 #     template_name = 'create_post.html'
+
 
 def create_post_view(request):
     form = PostModelForm(request.POST or None)
