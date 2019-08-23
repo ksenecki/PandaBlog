@@ -14,14 +14,25 @@
 }
 }
 </style>
+{% if user.is_authenticated %}
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-dark"> <h1> Cześć {{ user.username }}! </h1> </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 <div class='container'>
-{% if user.is_authenticated %}
-  <h1> Cześć {{ user.username }}! </h1>
-  <p> Nie masz uprawnień </p>
+	<p> Nie masz uprawnień </p>
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}" class="btn btn-primary">Zaloguj</a>
+	<p>You are not logged in</p>
+	<a href="{% url 'login' %}" class="btn btn-primary">Zaloguj</a>
 {% endif %}
 </div>
 {% endblock %}

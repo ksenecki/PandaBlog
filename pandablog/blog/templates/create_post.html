@@ -10,15 +10,33 @@ label {
 	padding-bottom: 5px;
 	padding-top: 5px;
 }
+.container {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 </style>
 
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                	{% if user.is_authenticated %}
+                    <h3 class=" site-heading my-4 mt-3 text-dark"> Cześć {{ user.username }}! </h3>
+                    <p> Zrób se posta</p>
+                    {% else %}
+                    <h3 class=" site-heading my-4 mt-3 text-dark"> Zaloguj się </h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 <div class='container'>
 {% if user.is_authenticated %}
-  <h1> Cześć {{ user.username }}! </h1>
-  <p> Zrób se posta</p>
   <form action='.' method='POST'>
   	{% csrf_token %}
   	<table>
