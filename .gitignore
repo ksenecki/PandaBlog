@@ -8,7 +8,7 @@
 *.pyc
 __pycache__/
 local_settings.py
-db.sqlite3
+*db.sqlite3
 db.sqlite3-journal
 media
 
@@ -208,7 +208,6 @@ Thumbs.db
 
 # Environments
 # .env
-venv
 
 # Spyder project settings
 
