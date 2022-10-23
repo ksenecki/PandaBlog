@@ -13,7 +13,7 @@ Simple django app that helped me learn framework basics
 
 # Start server
 
-`python manage.py runserver`
+`python3 manage.py runserver`
 
 
 
