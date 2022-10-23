@@ -2,4 +2,4 @@ Django==2.2.28
 django-richtextfield==1.6.1
 django-summernote==0.8.11.6
 pytz==2021.1
-sqlparse==0.4.1
+sqlparse==0.4.2
